@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>winEventSchedule</class>
+ <widget class="QWidget" name="winEventSchedule">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>320</width>
+    <height>240</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>320</width>
+     <height>240</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="pgSunday">
+    <attribute name="title">
+     <string>SU</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="pgMonday">
+    <attribute name="title">
+     <string>MO</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="pgTuesday">
+    <attribute name="title">
+     <string>TU</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="pgWednesday">
+    <attribute name="title">
+     <string>WED</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="pgThursday">
+    <attribute name="title">
+     <string>THUR</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="pgFriday">
+    <attribute name="title">
+     <string>FRI</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="pgSaturday">
+    <attribute name="title">
+     <string>SAT</string>
+    </attribute>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
