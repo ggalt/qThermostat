@@ -14,10 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    wineventschedule.cpp
+    wineventschedule.cpp \
+    qclickablelabel.cpp
 
 HEADERS  += mainwindow.h \
-    wineventschedule.h
+    wineventschedule.h \
+    qclickablelabel.h
 
 FORMS    += mainwindow.ui \
     wineventschedule.ui
