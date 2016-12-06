@@ -16,6 +16,11 @@ class qClickableLabel : public QLabel
 public:
     qClickableLabel(QWidget * parent = 0, Qt::WindowFlags f = 0);
 
+signals:
+    void pressed(void);
+    void released(void);
+    void clicked(void);
+
 protected:
     void mousePressEvent(QMouseEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
