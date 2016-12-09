@@ -10,6 +10,11 @@ MainWindow::MainWindow(QWidget *parent) :
     tick.setInterval(500);
     connect(&tick, SIGNAL(timeout()),
             this, SLOT(tock()));
+
+    model = new thermoEventListModel(this);
+    eventWindow = new winEventSchedule(model, this);
+    eventWindow->hide();
+
     tick.start();
     showColon = true;
 }
@@ -22,8 +27,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_btnTargetTemp_clicked()
 {
     // display schedule page
-    winEventSchedule *sch = new winEventSchedule(this);
-    sch->show();
+    eventWindow->show();
 }
 
 void MainWindow::on_btnWeather_clicked()

@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "thermostatevent.h"
+
 namespace Ui {
 class thermoEventWin;
 }
@@ -12,11 +14,11 @@ class thermoEventWin : public QWidget
     Q_OBJECT
 
 public:
-    explicit thermoEventWin(QWidget *parent = 0);
+    explicit thermoEventWin(thermostatEvent *t, QWidget *parent = 0);
     ~thermoEventWin();
 
 signals:
-    void closing();
+    void closing(thermostatEvent *);
 
 private slots:
     void on_btnAccept_clicked();
@@ -32,7 +34,11 @@ private slots:
     void on_sliderTargetTemp_valueChanged(int value);
 
 private:
+    void fillMultipleDayEvents(QList<thermostatEvent::DayOfTheWeek> alldays);
+
+private:
     Ui::thermoEventWin *ui;
+    thermostatEvent *m_event;
 };
 
 #endif // THERMOEVENTWIN_H

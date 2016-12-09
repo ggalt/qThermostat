@@ -5,6 +5,8 @@
 #include <QTimer>
 #include <QDate>
 #include <QDateTime>
+#include "thermoeventlistmodel.h"
+#include "wineventschedule.h"
 
 namespace Ui {
 class MainWindow;
@@ -27,6 +29,10 @@ private:
     Ui::MainWindow *ui;
     QTimer tick;
     bool showColon;
+
+    thermoEventListModel *model;
+    winEventSchedule *eventWindow;
+
 };
 
 #endif // MAINWINDOW_H
