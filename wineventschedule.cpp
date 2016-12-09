@@ -12,3 +12,13 @@ winEventSchedule::~winEventSchedule()
 {
     delete ui;
 }
+
+void winEventSchedule::on_btnCancel_clicked()
+{
+    close();
+}
+
+void winEventSchedule::on_btnAccept_clicked()
+{
+    close();
+}

@@ -1,3 +1,9 @@
+#include <QApplication>
+#include <QPainter>
+#include <QBrush>
+#include <QColor>
+#include <QGradient>
+
 #include "qclickablelabel.h"
 
 qClickableLabel::qClickableLabel(QWidget *parent, Qt::WindowFlags f) : QLabel(parent, f)
@@ -14,8 +20,6 @@ void qClickableLabel::mousePressEvent(QMouseEvent *e)
 
     if (hitLabel(e->pos())) {
         m_pressed = true;
-        repaint(); //flush paint event before invoking potentially expensive operation
-        QApplication::flush();
         emit pressed();
         e->accept();
     } else {
@@ -45,7 +49,20 @@ void qClickableLabel::mouseReleaseEvent(QMouseEvent *e)
 
 void qClickableLabel::mouseMoveEvent(QMouseEvent *e)
 {
+    if (!(e->buttons() & Qt::LeftButton) || !m_pressed) {
+        e->ignore();
+        return;
+    }
 
+    if (hitLabel(e->pos()) != m_pressed) {
+        if (m_pressed)
+            emit pressed();
+        else
+            emit released();
+        e->accept();
+    } else if (!hitLabel(e->pos())) {
+        e->ignore();
+    }
 }
 
 bool qClickableLabel::hitLabel(const QPoint &pos) const

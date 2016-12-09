@@ -15,11 +15,15 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     wineventschedule.cpp \
-    qclickablelabel.cpp
+    qclickablelabel.cpp \
+    thermoeventlistmodel.cpp \
+    thermostatevent.cpp
 
 HEADERS  += mainwindow.h \
     wineventschedule.h \
-    qclickablelabel.h
+    qclickablelabel.h \
+    thermoeventlistmodel.h \
+    thermostatevent.h
 
 FORMS    += mainwindow.ui \
     wineventschedule.ui

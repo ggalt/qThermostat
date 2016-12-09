@@ -5,8 +5,10 @@
 #include <QLabel>
 #include <QRect>
 #include <QPoint>
+#include <QPaintDevice>
 
 #include <QMouseEvent>
+#include <QPaintEvent>
 
 
 class qClickableLabel : public QLabel

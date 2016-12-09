@@ -13,53 +13,152 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:0, y2:0.5, stop:0 rgba(0, 255, 0, 255), stop:1 rgba(255, 255, 255, 255));</string>
+  </property>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>320</width>
-     <height>240</height>
+     <width>321</width>
+     <height>211</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>6</number>
    </property>
    <widget class="QWidget" name="pgSunday">
     <attribute name="title">
      <string>SU</string>
     </attribute>
+    <widget class="QListView" name="lstViewSunday">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>315</width>
+       <height>185</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="pgMonday">
     <attribute name="title">
      <string>MO</string>
     </attribute>
+    <widget class="QListView" name="listViewMonday">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>315</width>
+       <height>185</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="pgTuesday">
     <attribute name="title">
      <string>TU</string>
     </attribute>
+    <widget class="QListView" name="listViewTuesday">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>315</width>
+       <height>185</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="pgWednesday">
     <attribute name="title">
      <string>WED</string>
     </attribute>
+    <widget class="QListView" name="listViewWednesday">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>315</width>
+       <height>185</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="pgThursday">
     <attribute name="title">
      <string>THUR</string>
     </attribute>
+    <widget class="QListView" name="listViewThursday">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>315</width>
+       <height>185</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="pgFriday">
     <attribute name="title">
      <string>FRI</string>
     </attribute>
+    <widget class="QListView" name="listViewFriday">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>315</width>
+       <height>185</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="pgSaturday">
     <attribute name="title">
      <string>SAT</string>
     </attribute>
+    <widget class="QListView" name="listViewSaturday">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>315</width>
+       <height>185</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
+  </widget>
+  <widget class="QPushButton" name="btnAccept">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>210</y>
+     <width>160</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Create New Event</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnCancel">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>210</y>
+     <width>160</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
   </widget>
  </widget>
  <resources/>
