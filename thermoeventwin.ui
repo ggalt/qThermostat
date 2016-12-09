@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>thermoEventWin</class>
+ <widget class="QWidget" name="thermoEventWin">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>320</width>
+    <height>240</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(0, 255, 127);</string>
+  </property>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>320</width>
+     <height>240</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:reflect, x1:0.5, y1:0, x2:0.5, y2:0.5, stop:0 rgba(0, 134, 134, 255), stop:1 rgba(255, 255, 255, 255));</string>
+   </property>
+   <widget class="QLabel" name="lblTargetTemp">
+    <property name="geometry">
+     <rect>
+      <x>235</x>
+      <y>105</y>
+      <width>81</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>25</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+    </property>
+    <property name="text">
+     <string>70</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cboxHour">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>10</y>
+      <width>120</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="maxVisibleItems">
+     <number>5</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>12 AM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>01 AM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>02 AM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>03 AM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>04 AM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>05 AM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>06 AM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>07 AM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>08 AM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>09 AM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>10 AM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>11 AM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>12 PM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>01 PM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>02 PM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>03 PM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>04 PM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>05 PM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>06 PM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>07 PM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>08 PM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>09 PM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>10 PM</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>11 PM</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>240</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QPushButton" name="btnHeat">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>120</width>
+       <height>45</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>HEAT</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnCool">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>0</y>
+       <width>120</width>
+       <height>45</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>COOL</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QSlider" name="sliderTargetTemp">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>210</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>40</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cboxMinute">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>10</y>
+      <width>70</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="maxVisibleItems">
+     <number>5</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>05</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>10</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>15</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>20</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>25</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>30</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>35</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>40</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>45</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>50</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>55</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="btnCancel">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>180</y>
+      <width>108</width>
+      <height>45</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cancel</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cboxDayOfWeek">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>110</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="maxVisibleItems">
+     <number>5</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>ALL</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>WKDYS</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>WKEND</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>SUN</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>MON</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>TUE</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>WED</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>THU</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FRI</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>SAT</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="btnAccept">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>180</y>
+      <width>108</width>
+      <height>45</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Accept</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

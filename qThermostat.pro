@@ -17,13 +17,16 @@ SOURCES += main.cpp\
     wineventschedule.cpp \
     qclickablelabel.cpp \
     thermoeventlistmodel.cpp \
-    thermostatevent.cpp
+    thermostatevent.cpp \
+    thermoeventwin.cpp
 
 HEADERS  += mainwindow.h \
     wineventschedule.h \
     qclickablelabel.h \
     thermoeventlistmodel.h \
-    thermostatevent.h
+    thermostatevent.h \
+    thermoeventwin.h
 
 FORMS    += mainwindow.ui \
-    wineventschedule.ui
+    wineventschedule.ui \
+    thermoeventwin.ui

@@ -17,8 +17,8 @@ public:
 
 private slots:
     void on_btnCancel_clicked();
-
     void on_btnAccept_clicked();
+    void eventWinClosed();
 
 private:
     Ui::winEventSchedule *ui;
