@@ -45,74 +45,112 @@ int thermoEventListModel::addEvent(thermostatEvent *event)
 }
 
 
-//void thermoEventDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
-//                         const QModelIndex &index) const
-//{
-//    if (index.data().canConvert<QTime>()) {
-//        StarRating starRating = qvariant_cast<StarRating>(index.data());
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/// \brief thermoEventDelegate::paint
+/// \param painter
+/// \param option
+/// \param index
+///
 
-//        if (option.state & QStyle::State_Selected)
-//            painter->fillRect(option.rect, option.palette.highlight());
+void thermoEventDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
+                         const QModelIndex &index) const
+{
+    QStyleOptionViewItemV4 opt = option;
+    initStyleOption(&opt, index);
 
-//        starRating.paint(painter, option.rect, option.palette,
-//                         StarRating::ReadOnly);
-//    } else {
-//        QStyledItemDelegate::paint(painter, option, index);
-//    }
-//}
+//    QString str_targetTemp = index.model()->data(index.model()->index(index.row(),))
+    thermoEventListModel *tempModel = dynamic_cast<thermoEventListModel*>index.model();
+    thermostatEvent *tempEvent = dynamic_cast<thermostatEvent*>tempModel->data(index,Qt::DisplayRole);
 
-//QSize thermoEventDelegate::sizeHint(const QStyleOptionViewItem &option,
-//                             const QModelIndex &index) const
-//{
-//    if (index.data().canConvert<QTime>()) {
-//        StarRating starRating = qvariant_cast<StarRating>(index.data());
-//        return starRating.sizeHint();
-//    } else {
-//        return QStyledItemDelegate::sizeHint(option, index);
-//    }
-//}
 
-//QWidget *thermoEventDelegate::createEditor(QWidget *parent,
-//                                    const QStyleOptionViewItem &option,
-//                                    const QModelIndex &index) const
+    QString line0 = index.model()->data(index.model()->index(index.row(), 1)).toString();
+    QString line1 = index.model()->data(index.model()->index(index.row(), 2)).toString();
 
-//{
-//    if (index.data().canConvert<StarRating>()) {
-//        StarEditor *editor = new StarEditor(parent);
-//        connect(editor, &StarEditor::editingFinished,
-//                this, &thermoEventDelegate::commitAndCloseEditor);
-//        return editor;
-//    } else {
-//        return QStyledItemDelegate::createEditor(parent, option, index);
-//    }
-//}
+    // draw correct background
+    opt.text = "";
+    QStyle *style = opt.widget ? opt.widget->style() : QApplication::style();
+    style->drawControl(QStyle::CE_ItemViewItem, &opt, painter, opt.widget);
 
-//void thermoEventDelegate::setEditorData(QWidget *editor,
-//                                 const QModelIndex &index) const
-//{
-//    if (index.data().canConvert<StarRating>()) {
-//        StarRating starRating = qvariant_cast<StarRating>(index.data());
-//        StarEditor *starEditor = qobject_cast<StarEditor *>(editor);
-//        starEditor->setStarRating(starRating);
-//    } else {
-//        QStyledItemDelegate::setEditorData(editor, index);
-//    }
-//}
+    QRect rect = opt.rect;
+    QPalette::ColorGroup cg = opt.state & QStyle::State_Enabled ? QPalette::Normal : QPalette::Disabled;
+    if (cg == QPalette::Normal && !(opt.state & QStyle::State_Active))
+        cg = QPalette::Inactive;
 
-//void thermoEventDelegate::setModelData(QWidget *editor, QAbstractItemModel *model,
-//                                const QModelIndex &index) const
-//{
-//    if (index.data().canConvert<StarRating>()) {
-//        StarEditor *starEditor = qobject_cast<StarEditor *>(editor);
-//        model->setData(index, QVariant::fromValue(starEditor->starRating()));
-//    } else {
-//        QStyledItemDelegate::setModelData(editor, model, index);
-//    }
-//}
+    // set pen color
+    if (opt.state & QStyle::State_Selected)
+        painter->setPen(opt.palette.color(cg, QPalette::HighlightedText));
+    else
+        painter->setPen(opt.palette.color(cg, QPalette::Text));
 
-//void thermoEventDelegate::commitAndCloseEditor()
-//{
-//    StarEditor *editor = qobject_cast<StarEditor *>(sender());
-//    emit commitData(editor);
-//    emit closeEditor(editor);
-//}
+    // draw 2 lines of text
+    painter->drawText(QRect(rect.left(), rect.top(), rect.width(), rect.height()/2),
+                      opt.displayAlignment, line0);
+    painter->drawText(QRect(rect.left(), rect.top()+rect.height()/2, rect.width(), rect.height()/2),
+                      opt.displayAlignment, line1);
+}
+
+QSize sizeHint(const QStyleOptionViewItem & option, const QModelIndex & index ) const
+{
+    QSize result = QStyledItemDelegate::sizeHint(option, index);
+    result.setHeight(result.height()*2);
+    return result;
+}
+};
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/// \brief thermoEventDelegate::sizeHint
+/// \param option
+/// \param index
+/// \return
+///
+
+QSize thermoEventDelegate::sizeHint(const QStyleOptionViewItem &option,
+                             const QModelIndex &index) const
+{
+    return QStyledItemDelegate::sizeHint(option, index);
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/// \brief thermoEventDelegate::createEditor
+/// \param parent
+/// \param option
+/// \param index
+/// \return
+///
+QWidget *thermoEventDelegate::createEditor(QWidget *parent,
+                                    const QStyleOptionViewItem &option,
+                                    const QModelIndex &index) const
+
+{
+    return QStyledItemDelegate::createEditor(parent, option, index);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/// \brief thermoEventDelegate::setEditorData
+/// \param editor
+/// \param index
+///
+void thermoEventDelegate::setEditorData(QWidget *editor,
+                                 const QModelIndex &index) const
+{
+    QStyledItemDelegate::setEditorData(editor, index);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/// \brief thermoEventDelegate::setModelData
+/// \param editor
+/// \param model
+/// \param index
+///
+void thermoEventDelegate::setModelData(QWidget *editor, QAbstractItemModel *model,
+                                const QModelIndex &index) const
+{
+    QStyledItemDelegate::setModelData(editor, model, index);
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/// \brief thermoEventDelegate::commitAndCloseEditor
+///
+
+void thermoEventDelegate::commitAndCloseEditor()
+{
+}

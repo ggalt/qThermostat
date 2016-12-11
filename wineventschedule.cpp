@@ -1,5 +1,6 @@
 #include <QDebug>
 #include <QStyledItemDelegate>
+#include <QVariant>
 
 #include "wineventschedule.h"
 #include "ui_wineventschedule.h"
@@ -35,7 +36,12 @@ void winEventSchedule::on_btnAccept_clicked()
 
 void winEventSchedule::eventWinClosed(thermostatEvent *temp)
 {
+    QVariant q = QVariant::fromValue(temp->startTime());
+
     qDebug() << "Insert" << temp->dayOfTheWeek() << temp->startTime() << temp->targetTemp() << temp->coolingState();
+    qDebug() << "Time type is:" << q.typeName() << "DayOfTheWeek type is:" << QVariant::fromValue(temp->dayOfTheWeek()).typeName()
+             << "Cooling is:" << QVariant::fromValue(temp->coolingState()).typeName() << "Fanstate:" << QVariant::fromValue(temp->fanState()).typeName()
+             << "Switchstate:" << QVariant::fromValue(temp->switchState()).typeName();
     model->addEvent(temp);
 //    this->show();
 }
